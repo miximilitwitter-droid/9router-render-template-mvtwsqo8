@@ -1,11 +1,4 @@
 # yaml-language-server: $schema=https://render.com/schema/render.yaml.json
-#
-# 9Router on Render — one-click gallery template
-# Upstream: https://github.com/decolua/9router
-# Image: https://hub.docker.com/r/decolua/9router (tag: 0.5.45)
-#
-# Pattern: image-wrapper (public multi-arch image + SQLite disk).
-# Headroom / SearXNG sidecars are optional and configured after deploy.
 
 previews:
   generation: off
@@ -18,16 +11,12 @@ projects:
           - type: web
             name: 9router
             runtime: image
-            plan: standard
+            plan: free
             region: oregon
             image:
               url: docker.io/decolua/9router:0.5.45
             healthCheckPath: /api/health
             autoDeployTrigger: off
-            disk:
-              name: 9router-data
-              mountPath: /app/data
-              sizeGB: 5
             envVars:
               - key: PORT
                 value: "20128"
